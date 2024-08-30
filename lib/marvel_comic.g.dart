@@ -8,7 +8,9 @@ part of 'marvel_comic.dart';
 
 _$MarvelComicImpl _$$MarvelComicImplFromJson(Map<String, dynamic> json) =>
     _$MarvelComicImpl(
-      id: (json['id'] as num).toInt(),
+      id: const IntToStringConverter().fromJson((json['id'] as num).toInt()),
+      issueNumber: const NullableIntToNullableStringConverter()
+          .fromJson((json['issueNumber'] as num?)?.toInt()),
       digitalId: (json['digitalId'] as num?)?.toInt(),
       title: json['title'] as String?,
       modified: json['modified'] == null
@@ -29,7 +31,7 @@ _$MarvelComicImpl _$$MarvelComicImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$MarvelComicImplToJson(_$MarvelComicImpl instance) {
   final val = <String, dynamic>{
-    'id': instance.id,
+    'id': const IntToStringConverter().toJson(instance.id),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -38,6 +40,10 @@ Map<String, dynamic> _$$MarvelComicImplToJson(_$MarvelComicImpl instance) {
     }
   }
 
+  writeNotNull(
+      'issueNumber',
+      const NullableIntToNullableStringConverter()
+          .toJson(instance.issueNumber));
   writeNotNull('digitalId', instance.digitalId);
   writeNotNull('title', instance.title);
   writeNotNull('modified', instance.modified?.toIso8601String());

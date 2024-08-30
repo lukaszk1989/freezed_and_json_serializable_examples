@@ -1,3 +1,4 @@
+import 'package:freezed_and_json_serializable_examples/converters/converters.dart';
 import 'package:freezed_and_json_serializable_examples/models/marvel_image/marvel_image.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,7 +11,8 @@ part 'marvel_comic.g.dart';
 @freezed
 class MarvelComic with _$MarvelComic {
   const factory MarvelComic({
-    @JsonKey(name: 'id') required int id,
+    @IntToStringConverter() required String id,
+    @NullableIntToNullableStringConverter() String? issueNumber,
     @JsonKey(name: 'digitalId') int? digitalId,
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'modified') DateTime? modified,

@@ -20,8 +20,10 @@ MarvelComic _$MarvelComicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MarvelComic {
-  @JsonKey(name: 'id')
-  int get id => throw _privateConstructorUsedError;
+  @IntToStringConverter()
+  String get id => throw _privateConstructorUsedError;
+  @NullableIntToNullableStringConverter()
+  String? get issueNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'digitalId')
   int? get digitalId => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
@@ -48,7 +50,8 @@ abstract class $MarvelComicCopyWith<$Res> {
       _$MarvelComicCopyWithImpl<$Res, MarvelComic>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
+      {@IntToStringConverter() String id,
+      @NullableIntToNullableStringConverter() String? issueNumber,
       @JsonKey(name: 'digitalId') int? digitalId,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'modified') DateTime? modified,
@@ -74,6 +77,7 @@ class _$MarvelComicCopyWithImpl<$Res, $Val extends MarvelComic>
   @override
   $Res call({
     Object? id = null,
+    Object? issueNumber = freezed,
     Object? digitalId = freezed,
     Object? title = freezed,
     Object? modified = freezed,
@@ -85,7 +89,11 @@ class _$MarvelComicCopyWithImpl<$Res, $Val extends MarvelComic>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
+      issueNumber: freezed == issueNumber
+          ? _value.issueNumber
+          : issueNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       digitalId: freezed == digitalId
           ? _value.digitalId
           : digitalId // ignore: cast_nullable_to_non_nullable
@@ -135,7 +143,8 @@ abstract class _$$MarvelComicImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
+      {@IntToStringConverter() String id,
+      @NullableIntToNullableStringConverter() String? issueNumber,
       @JsonKey(name: 'digitalId') int? digitalId,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'modified') DateTime? modified,
@@ -160,6 +169,7 @@ class __$$MarvelComicImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? issueNumber = freezed,
     Object? digitalId = freezed,
     Object? title = freezed,
     Object? modified = freezed,
@@ -171,7 +181,11 @@ class __$$MarvelComicImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
+      issueNumber: freezed == issueNumber
+          ? _value.issueNumber
+          : issueNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       digitalId: freezed == digitalId
           ? _value.digitalId
           : digitalId // ignore: cast_nullable_to_non_nullable
@@ -204,7 +218,8 @@ class __$$MarvelComicImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MarvelComicImpl implements _MarvelComic {
   const _$MarvelComicImpl(
-      {@JsonKey(name: 'id') required this.id,
+      {@IntToStringConverter() required this.id,
+      @NullableIntToNullableStringConverter() this.issueNumber,
       @JsonKey(name: 'digitalId') this.digitalId,
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'modified') this.modified,
@@ -219,8 +234,11 @@ class _$MarvelComicImpl implements _MarvelComic {
       _$$MarvelComicImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
-  final int id;
+  @IntToStringConverter()
+  final String id;
+  @override
+  @NullableIntToNullableStringConverter()
+  final String? issueNumber;
   @override
   @JsonKey(name: 'digitalId')
   final int? digitalId;
@@ -247,7 +265,7 @@ class _$MarvelComicImpl implements _MarvelComic {
 
   @override
   String toString() {
-    return 'MarvelComic(id: $id, digitalId: $digitalId, title: $title, modified: $modified, format: $format, thumbnail: $thumbnail, images: $images)';
+    return 'MarvelComic(id: $id, issueNumber: $issueNumber, digitalId: $digitalId, title: $title, modified: $modified, format: $format, thumbnail: $thumbnail, images: $images)';
   }
 
   @override
@@ -256,6 +274,8 @@ class _$MarvelComicImpl implements _MarvelComic {
         (other.runtimeType == runtimeType &&
             other is _$MarvelComicImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.issueNumber, issueNumber) ||
+                other.issueNumber == issueNumber) &&
             (identical(other.digitalId, digitalId) ||
                 other.digitalId == digitalId) &&
             (identical(other.title, title) || other.title == title) &&
@@ -269,8 +289,16 @@ class _$MarvelComicImpl implements _MarvelComic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, digitalId, title, modified,
-      format, thumbnail, const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      issueNumber,
+      digitalId,
+      title,
+      modified,
+      format,
+      thumbnail,
+      const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -288,7 +316,8 @@ class _$MarvelComicImpl implements _MarvelComic {
 
 abstract class _MarvelComic implements MarvelComic {
   const factory _MarvelComic(
-          {@JsonKey(name: 'id') required final int id,
+          {@IntToStringConverter() required final String id,
+          @NullableIntToNullableStringConverter() final String? issueNumber,
           @JsonKey(name: 'digitalId') final int? digitalId,
           @JsonKey(name: 'title') final String? title,
           @JsonKey(name: 'modified') final DateTime? modified,
@@ -303,8 +332,11 @@ abstract class _MarvelComic implements MarvelComic {
       _$MarvelComicImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
-  int get id;
+  @IntToStringConverter()
+  String get id;
+  @override
+  @NullableIntToNullableStringConverter()
+  String? get issueNumber;
   @override
   @JsonKey(name: 'digitalId')
   int? get digitalId;

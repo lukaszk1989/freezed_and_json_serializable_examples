@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-final test = const MarvelComic(id: 1);
+final test = const MarvelComic(id: '1');
 
   int _counter = 0;
 
