@@ -14,10 +14,10 @@ _$MarvelComicImpl _$$MarvelComicImplFromJson(Map<String, dynamic> json) =>
       modified: json['modified'] == null
           ? null
           : DateTime.parse(json['modified'] as String),
-      format: $enumDecodeNullable(_$MarvelComicFormatEnumMap, json['format']),
-      thumbnail: json['thumbnail'] == null
+      thumbnail: json['replaced_thumbnail_key_name'] == null
           ? null
-          : MarvelImage.fromJson(json['thumbnail'] as Map<String, dynamic>),
+          : MarvelImage.fromJson(
+              json['replaced_thumbnail_key_name'] as Map<String, dynamic>),
       images: (json['images'] as List<dynamic>?)
               ?.map((e) => MarvelImage.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -38,19 +38,7 @@ Map<String, dynamic> _$$MarvelComicImplToJson(_$MarvelComicImpl instance) {
   writeNotNull('digitalId', instance.digitalId);
   writeNotNull('title', instance.title);
   writeNotNull('modified', instance.modified?.toIso8601String());
-  writeNotNull('format', _$MarvelComicFormatEnumMap[instance.format]);
-  writeNotNull('thumbnail', instance.thumbnail?.toJson());
+  writeNotNull('replaced_thumbnail_key_name', instance.thumbnail?.toJson());
   val['images'] = instance.images.map((e) => e.toJson()).toList();
   return val;
 }
-
-const _$MarvelComicFormatEnumMap = {
-  MarvelComicFormat.comic: 'comic',
-  MarvelComicFormat.magazine: 'magazine',
-  MarvelComicFormat.tradePaperback: 'tradePaperback',
-  MarvelComicFormat.hardCover: 'hardCover',
-  MarvelComicFormat.digest: 'digest',
-  MarvelComicFormat.graphicNovel: 'graphicNovel',
-  MarvelComicFormat.digitalComic: 'digitalComic',
-  MarvelComicFormat.infiniteComic: 'infiniteComic',
-};

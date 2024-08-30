@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_and_json_serializable_examples/marvel_comic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({required this.title, super.key});
 
   final String title;
 
@@ -30,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+final test = const MarvelComic(id: 1);
 
   int _counter = 0;
 
