@@ -28,8 +28,8 @@ mixin _$MarvelComic {
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'modified')
   DateTime? get modified => throw _privateConstructorUsedError;
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  MarvelComicFormat? get format => throw _privateConstructorUsedError;
+  @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+  MarvelComicFormat get format => throw _privateConstructorUsedError;
   @JsonKey(name: 'replaced_thumbnail_key_name')
   MarvelImage? get thumbnail => throw _privateConstructorUsedError;
   @JsonKey(name: 'images')
@@ -52,8 +52,8 @@ abstract class $MarvelComicCopyWith<$Res> {
       @JsonKey(name: 'digitalId') int? digitalId,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'modified') DateTime? modified,
-      @JsonKey(includeFromJson: false, includeToJson: false)
-      MarvelComicFormat? format,
+      @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+      MarvelComicFormat format,
       @JsonKey(name: 'replaced_thumbnail_key_name') MarvelImage? thumbnail,
       @JsonKey(name: 'images') List<MarvelImage> images});
 
@@ -77,7 +77,7 @@ class _$MarvelComicCopyWithImpl<$Res, $Val extends MarvelComic>
     Object? digitalId = freezed,
     Object? title = freezed,
     Object? modified = freezed,
-    Object? format = freezed,
+    Object? format = null,
     Object? thumbnail = freezed,
     Object? images = null,
   }) {
@@ -98,10 +98,10 @@ class _$MarvelComicCopyWithImpl<$Res, $Val extends MarvelComic>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      format: freezed == format
+      format: null == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MarvelComicFormat?,
+              as MarvelComicFormat,
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -139,8 +139,8 @@ abstract class _$$MarvelComicImplCopyWith<$Res>
       @JsonKey(name: 'digitalId') int? digitalId,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'modified') DateTime? modified,
-      @JsonKey(includeFromJson: false, includeToJson: false)
-      MarvelComicFormat? format,
+      @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+      MarvelComicFormat format,
       @JsonKey(name: 'replaced_thumbnail_key_name') MarvelImage? thumbnail,
       @JsonKey(name: 'images') List<MarvelImage> images});
 
@@ -163,7 +163,7 @@ class __$$MarvelComicImplCopyWithImpl<$Res>
     Object? digitalId = freezed,
     Object? title = freezed,
     Object? modified = freezed,
-    Object? format = freezed,
+    Object? format = null,
     Object? thumbnail = freezed,
     Object? images = null,
   }) {
@@ -184,10 +184,10 @@ class __$$MarvelComicImplCopyWithImpl<$Res>
           ? _value.modified
           : modified // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      format: freezed == format
+      format: null == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as MarvelComicFormat?,
+              as MarvelComicFormat,
       thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -208,7 +208,8 @@ class _$MarvelComicImpl implements _MarvelComic {
       @JsonKey(name: 'digitalId') this.digitalId,
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'modified') this.modified,
-      @JsonKey(includeFromJson: false, includeToJson: false) this.format,
+      @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+      this.format = MarvelComicFormat.unknown,
       @JsonKey(name: 'replaced_thumbnail_key_name') this.thumbnail,
       @JsonKey(name: 'images')
       final List<MarvelImage> images = const <MarvelImage>[]})
@@ -230,8 +231,8 @@ class _$MarvelComicImpl implements _MarvelComic {
   @JsonKey(name: 'modified')
   final DateTime? modified;
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final MarvelComicFormat? format;
+  @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+  final MarvelComicFormat format;
   @override
   @JsonKey(name: 'replaced_thumbnail_key_name')
   final MarvelImage? thumbnail;
@@ -291,8 +292,8 @@ abstract class _MarvelComic implements MarvelComic {
           @JsonKey(name: 'digitalId') final int? digitalId,
           @JsonKey(name: 'title') final String? title,
           @JsonKey(name: 'modified') final DateTime? modified,
-          @JsonKey(includeFromJson: false, includeToJson: false)
-          final MarvelComicFormat? format,
+          @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+          final MarvelComicFormat format,
           @JsonKey(name: 'replaced_thumbnail_key_name')
           final MarvelImage? thumbnail,
           @JsonKey(name: 'images') final List<MarvelImage> images}) =
@@ -314,8 +315,8 @@ abstract class _MarvelComic implements MarvelComic {
   @JsonKey(name: 'modified')
   DateTime? get modified;
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  MarvelComicFormat? get format;
+  @JsonKey(name: 'format', unknownEnumValue: MarvelComicFormat.unknown)
+  MarvelComicFormat get format;
   @override
   @JsonKey(name: 'replaced_thumbnail_key_name')
   MarvelImage? get thumbnail;
